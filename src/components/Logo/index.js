@@ -4,9 +4,9 @@ import mainLogo from "../../assets/img/2-stars-64.png";
 
 import * as Styled from "./index.styles";
 
-const Logo = () => {
+const Logo = ({margin = '0'}) => {
   return (
-    <Styled.Logo>
+    <Styled.Logo margin={margin}>
       <Styled.MainLogo src={mainLogo} alt="main-logo" />
     </Styled.Logo>
   );

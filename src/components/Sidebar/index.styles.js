@@ -1,18 +1,14 @@
 import styled from "styled-components/macro";
 
-import { backgroundColors } from "../../styles/colors";
-
 export const Sidebar = styled.div`
-  width: 64px;
-  background-color: ${backgroundColors.darkSecondary};
-  height: 100vh;
+  width: 96px;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
-  padding-top: 48px;
+  grid-area: sidebar;
 `;
 
 export const Logo = styled.img`
-  witdh: 32px;
-  heigth: 32px;
-  padding: 8px;
+  width: 32px;
+  height: 32px;
 `;

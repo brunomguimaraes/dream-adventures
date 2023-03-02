@@ -9,6 +9,9 @@ const Main = () => {
     <Styled.Main>
       <Topbar />
       <Sidebar />
+
+      <Styled.Content />
+      
     </Styled.Main>
   );
 };

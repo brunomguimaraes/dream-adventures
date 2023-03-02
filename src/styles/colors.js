@@ -4,7 +4,7 @@ export const defaultColors = {
 };
 
 export const backgroundColors = {
-  darkPrimary: '#1F1B36',
-  darkSecondary: '#282043',
+  darkPrimary: '#282043',
+  darkSecondary: '#1F1B36',
 };
 
