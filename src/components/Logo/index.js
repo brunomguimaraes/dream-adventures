@@ -1,6 +1,6 @@
 import React from "react";
 
-import mainLogo from "../../assets/img/2-stars-64.png";
+import mainLogo from "assets/img/2-stars-64.png";
 
 import * as Styled from "./index.styles";
 

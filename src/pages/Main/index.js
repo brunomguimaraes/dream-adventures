@@ -1,6 +1,7 @@
 import React from 'react';
-import Sidebar from '../../components/Sidebar';
-import Topbar from '../../components/Topbar';
+import Sidebar from 'components/Sidebar';
+import TeamGrid from 'components/TeamGrid';
+import Topbar from 'components/Topbar';
 
 import * as Styled from './index.styles';
 
@@ -10,8 +11,10 @@ const Main = () => {
       <Topbar />
       <Sidebar />
 
-      <Styled.Content />
-      
+      <Styled.Content>
+        <TeamGrid />
+      </Styled.Content>
+
     </Styled.Main>
   );
 };

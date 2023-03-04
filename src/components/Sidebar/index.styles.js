@@ -6,9 +6,6 @@ export const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   grid-area: sidebar;
-`;
-
-export const Logo = styled.img`
-  width: 32px;
-  height: 32px;
+  align-items: center;
+  margin-top: 32px;
 `;

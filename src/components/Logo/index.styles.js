@@ -1,7 +1,6 @@
 import styled from "styled-components/macro";
 
 export const Logo = styled.div`
-  min-width: 100%;
   margin: ${({margin}) => margin};
 `;
 

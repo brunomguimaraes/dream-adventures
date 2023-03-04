@@ -7,10 +7,9 @@ html {
   height: 100%;
 }
   body {
-    margin: 0;
-    padding: 0;
     background-color: ${backgroundColors.darkPrimary};
     height: 100%;
+    margin: 0;
   }
 `;
  
