@@ -11,8 +11,9 @@ const useDynamicSVGImport = (name, options = {}) => {
     const importIcon = async () => {
       try {
         ImportedIconRef.current = (
+          // todo: change this for the other folders
           await import(`assets/svg/icons/stroke/stats/${name}.svg`)
-        ).ReactComponent;
+        ).default;
         if (onCompleted) {
           onCompleted(name, ImportedIconRef.current);
         }

@@ -5,7 +5,7 @@ const GIF_WIDTH = "64px";
 
 export const TeamGrid = styled.div`
   background-color: ${backgroundColors.darkPrimary};
-  padding: 32px;
+  padding: 32px 8px;
   margin: 32px;
   width: 100%;
   border-radius: 24px;
@@ -18,7 +18,6 @@ export const Card = styled.div`
 `;
 
 export const CardLeft = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -83,8 +82,14 @@ export const StatsBarIcon = styled.img`
   height: 8px;
 `;
 
-export const StatusIcon = styled.span`
-  border: solid red 1px;
-  width: 8px;
-  height: 8px;
+export const StatusIcon = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const StatusSvgIcon = styled.img`
+  margin-right: 4px;
+  margin-bottom: 4px;
+  width: 24px;
+  height: 24px;
 `;

@@ -10,9 +10,9 @@ import greatballImg from "assets/img/pokeballs/greatball.png";
 
 import { getPercent } from "utils/math";
 
-import * as Styled from "./index.styles";
-import { SvgUse } from "utils/graphics";
 import useDynamicSVGImport from "hooks/useDynamicSVGImport";
+
+import * as Styled from "./index.styles";
 
 const MOCK_TEAM = [
   {
@@ -39,48 +39,46 @@ const renderFriendshipStats = (stats) => {
 
   return (
     <Styled.StatsBar>
-      {filledHearts.map(() => (
-        <Styled.StatsBarIcon src={filledHeartIcon} />
+      {filledHearts.map((_, i) => (
+        <Styled.StatsBarIcon key={`filled-heart-${i}`} src={filledHeartIcon} />
       ))}
-      {emptyHearts.map(() => (
-        <Styled.StatsBarIcon src={emptyHeartIcon} />
+      {emptyHearts.map((_, i) => (
+        <Styled.StatsBarIcon key={`empty-heart-${i}`} src={emptyHeartIcon} />
       ))}
     </Styled.StatsBar>
   );
 };
 
 const TeamGrid = () => {
-console.log('=>', useDynamicSVGImport('power').SvgIcon)
+  const statsIcon = {
+    power: useDynamicSVGImport("power").SvgIcon,
+    speed: useDynamicSVGImport("speed").SvgIcon,
+    wit: useDynamicSVGImport("wit").SvgIcon,
+    resilience: useDynamicSVGImport("resilience").SvgIcon,
+    creativity: useDynamicSVGImport("creativity").SvgIcon,
+  };
 
   return (
     <Styled.TeamGrid>
       {MOCK_TEAM.map(
-        ({
-          src,
-          species,
-          nickname,
-          typeIcon,
-          friendship,
-          ball,
-          health,
-          stats,
-        }) => {
+        (
+          { src, species, nickname, typeIcon, friendship, ball, health, stats },
+          i
+        ) => {
           return (
-            <Styled.Card>
+            <Styled.Card key={`${species}` - `${i}`}>
               <Styled.CardLeft>
-                <StatusBar percentage={health} healthBar />
-                {Object.keys(stats).map((key) => {
-                
-                  
-                  return (
-                  <Styled.StatusBarRow>
+                {/* <StatusBar percentage={health} healthBar /> */}
+
+                {Object.keys(stats).map((key, i) => (
+                  <Styled.StatusBarRow key={i}>
                     <Styled.StatusIcon>
-                      <SvgUse id={key} />
+                      <Styled.StatusSvgIcon src={statsIcon[key]} />
                     </Styled.StatusIcon>
 
                     <StatusBar percentage={getPercent(stats[key], 10)} />
                   </Styled.StatusBarRow>
-                )})}
+                ))}
               </Styled.CardLeft>
 
               <Styled.CardCenter>
