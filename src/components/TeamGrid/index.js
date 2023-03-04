@@ -1,18 +1,24 @@
 import React from "react";
 
-import StatusBar from "components/StatusBar";
-
 import charmanderGif from "assets/gif/gen1/charmander.gif";
+import bulbasaurGif from "assets/gif/gen1/bulbasaur.gif";
+import eeveeGif from "assets/gif/gen1/eevee.gif";
+import meowthGif from "assets/gif/gen1/meowth.gif";
+import togepiGif from "assets/gif/gen1/togepi.gif";
+import squirtleGif from "assets/gif/gen1/squirtle.gif";
+
+
 import fireTypeIcon from "assets/svg/types/fire.svg";
-import filledHeartIcon from "assets/svg/icons/fill/heart.svg";
-import emptyHeartIcon from "assets/svg/icons/stroke/heart.svg";
+import grassTypeIcon from "assets/svg/types/grass.svg";
+import waterTypeIcon from "assets/svg/types/water.svg";
+import normalTypeIcon from "assets/svg/types/normal.svg";
+
 import greatballImg from "assets/img/pokeballs/greatball.png";
-
-import { getPercent } from "utils/math";
-
-import useDynamicSVGImport from "hooks/useDynamicSVGImport";
+import pokeballImg from "assets/img/pokeballs/pokeball.png";
 
 import * as Styled from "./index.styles";
+import TeamCard from "components/TeamCard";
+import EmptyCard from "components/TeamCard/emptyCard";
 
 const MOCK_TEAM = [
   {
@@ -20,9 +26,9 @@ const MOCK_TEAM = [
     species: "Charmander",
     nickname: "",
     typeIcon: fireTypeIcon,
-    friendship: 2,
+    friendship: 4,
     ball: greatballImg,
-    health: 7,
+    health: 60,
     stats: {
       power: 2,
       speed: 1,
@@ -30,75 +36,167 @@ const MOCK_TEAM = [
       resilience: 1,
       creativity: 0,
     },
+    nature: "Gentle",
+    preferences: {
+      flavors: {
+        likes: ["Spicy", "Sour"],
+        dislikes: ["Dry"],
+      },
+      conditions: {
+        likes: ["Cool", "Clever"],
+        dislikes: ["Tough", "Cute"],
+      },
+    },
   },
+  {
+    src: togepiGif,
+    species: "Togepi",
+    nickname: "",
+    typeIcon: normalTypeIcon,
+    friendship: 1,
+    ball: greatballImg,
+    health: 100,
+    stats: {
+      power: 9,
+      speed: 0,
+      wit: 10,
+      resilience: 5,
+      creativity: 5,
+    },
+    nature: "Docile",
+    preferences: {
+      flavors: {
+        likes: ["Sweet"],
+        dislikes: ["Spicy", "Dry"],
+      },
+      conditions: {
+        likes: ["Tough", "Clever"],
+        dislikes: ["Cute"],
+      },
+    },
+  },
+  // {
+  //   src: bulbasaurGif,
+  //   species: "Bulbasaur",
+  //   nickname: "",
+  //   typeIcon: grassTypeIcon,
+  //   friendship: 2,
+  //   ball: pokeballImg,
+  //   health: 55,
+  //   stats: {
+  //     power: 0,
+  //     speed: 0,
+  //     wit: 0,
+  //     resilience: 7,
+  //     creativity: 8,
+  //   },
+  //   nature: "Relaxed",
+  //   preferences: {
+  //     flavors: {
+  //       likes: ["Spicy", "Sour"],
+  //       dislikes: ["Dry"],
+  //     },
+  //     conditions: {
+  //       likes: ["Cool", "Clever"],
+  //       dislikes: ["Tough", "Cute"],
+  //     },
+  //   },
+  // },
+  // {
+  //   src: eeveeGif,
+  //   species: "Eevee",
+  //   nickname: "",
+  //   typeIcon: normalTypeIcon,
+  //   friendship: 0,
+  //   ball: greatballImg,
+  //   health: 100,
+  //   stats: {
+  //     power: 4,
+  //     speed: 7,
+  //     wit: 6,
+  //     resilience: 10,
+  //     creativity: 3,
+  //   },
+  //   nature: "Calm",
+  //   preferences: {
+  //     flavors: {
+  //       likes: ["Spicy", "Sour"],
+  //       dislikes: ["Dry"],
+  //     },
+  //     conditions: {
+  //       likes: ["Cool", "Clever"],
+  //       dislikes: ["Tough", "Cute"],
+  //     },
+  //   },
+  // },
+  // {
+  //   src: meowthGif,
+  //   species: "Meowth",
+  //   nickname: "",
+  //   typeIcon: normalTypeIcon,
+  //   friendship: 5,
+  //   ball: pokeballImg,
+  //   health: 8,
+  //   stats: {
+  //     power: 2,
+  //     speed: 5,
+  //     wit: 7,
+  //     resilience: 1,
+  //     creativity: 5,
+  //   },
+  //   nature: "Hasty",
+  //   preferences: {
+  //     flavors: {
+  //       likes: ["Spicy", "Sour"],
+  //       dislikes: ["Dry"],
+  //     },
+  //     conditions: {
+  //       likes: ["Cool", "Clever"],
+  //       dislikes: ["Tough", "Cute"],
+  //     },
+  //   },
+  // },
+  // {
+  //   src: squirtleGif,
+  //   species: "Squirtle",
+  //   nickname: "",
+  //   typeIcon: waterTypeIcon,
+  //   friendship: 4,
+  //   ball: pokeballImg,
+  //   health: 26,
+  //   stats: {
+  //     power: 9,
+  //     speed: 7,
+  //     wit: 2,
+  //     resilience: 1,
+  //     creativity: 3,
+  //   },
+  //   nature: "Adamant",
+  //   preferences: {
+  //     flavors: {
+  //       likes: ["Spicy", "Sour"],
+  //       dislikes: ["Dry"],
+  //     },
+  //     conditions: {
+  //       likes: ["Cool", "Clever"],
+  //       dislikes: ["Tough", "Cute"],
+  //     },
+  //   },
+  // },
 ];
 
-const renderFriendshipStats = (stats) => {
-  const filledHearts = [...Array(stats)];
-  const emptyHearts = [...Array(5 - stats)];
+const TeamGrid = ({team = MOCK_TEAM}) => {
+  const emptyCards = [...Array(6 - team.length)];
 
-  return (
-    <Styled.StatsBar>
-      {filledHearts.map((_, i) => (
-        <Styled.StatsBarIcon key={`filled-heart-${i}`} src={filledHeartIcon} />
-      ))}
-      {emptyHearts.map((_, i) => (
-        <Styled.StatsBarIcon key={`empty-heart-${i}`} src={emptyHeartIcon} />
-      ))}
-    </Styled.StatsBar>
-  );
-};
-
-const TeamGrid = () => {
-  const statsIcon = {
-    power: useDynamicSVGImport("power").SvgIcon,
-    speed: useDynamicSVGImport("speed").SvgIcon,
-    wit: useDynamicSVGImport("wit").SvgIcon,
-    resilience: useDynamicSVGImport("resilience").SvgIcon,
-    creativity: useDynamicSVGImport("creativity").SvgIcon,
-  };
 
   return (
     <Styled.TeamGrid>
-      {MOCK_TEAM.map(
-        (
-          { src, species, nickname, typeIcon, friendship, ball, health, stats },
-          i
-        ) => {
-          return (
-            <Styled.Card key={`${species}` - `${i}`}>
-              <Styled.CardLeft>
-                {/* <StatusBar percentage={health} healthBar /> */}
-
-                {Object.keys(stats).map((key, i) => (
-                  <Styled.StatusBarRow key={i}>
-                    <Styled.StatusIcon>
-                      <Styled.StatusSvgIcon src={statsIcon[key]} />
-                    </Styled.StatusIcon>
-
-                    <StatusBar percentage={getPercent(stats[key], 10)} />
-                  </Styled.StatusBarRow>
-                ))}
-              </Styled.CardLeft>
-
-              <Styled.CardCenter>
-                <Styled.Gif src={src} alt="charmander" />
-
-                <Styled.CardTitle>
-                  <Styled.Ball src={ball} />
-                  {nickname || species}
-                </Styled.CardTitle>
-
-                <Styled.TypeIcon src={typeIcon} />
-              </Styled.CardCenter>
-
-              <Styled.CardRight>
-                {renderFriendshipStats(friendship)}
-              </Styled.CardRight>
-            </Styled.Card>
-          );
-        }
-      )}
+      {team.map((monster) => (
+        <TeamCard monster={monster} />
+      ))}
+      {emptyCards.map(() => (
+        <EmptyCard />
+      ))}
     </Styled.TeamGrid>
   );
 };

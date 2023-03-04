@@ -4,7 +4,7 @@ import { backgroundColors, defaultColors } from "styles/colors";
 
 export const StatusBar = styled.div`
   box-sizing: content-box;
-  height: ${({ isHealthBar }) => (isHealthBar ? "12" : "8")}px;
+  height: 12px;
   position: relative;
   width: 100%;
   background: ${backgroundColors.darkSecondary};
