@@ -1,6 +1,7 @@
 import React from 'react';
+import { Outlet } from 'react-router';
+
 import Sidebar from 'components/Sidebar';
-import TeamGrid from 'components/TeamGrid';
 import Topbar from 'components/Topbar';
 
 import * as Styled from './index.styles';
@@ -12,7 +13,7 @@ const Main = () => {
       <Sidebar />
 
       <Styled.Content>
-        <TeamGrid />
+        <Outlet />
       </Styled.Content>
 
     </Styled.Main>

@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { backgroundColors } from "styles/colors";
 
-export const TeamGrid = styled.div`
+export const Team = styled.div`
   background-color: ${backgroundColors.darkPrimary};
   padding: 32px;
   margin: 32px;

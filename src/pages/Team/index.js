@@ -1,17 +1,16 @@
 import React from "react";
 
-import charmanderGif from "assets/gif/gen1/charmander.gif";
-import bulbasaurGif from "assets/gif/gen1/bulbasaur.gif";
-import eeveeGif from "assets/gif/gen1/eevee.gif";
-import meowthGif from "assets/gif/gen1/meowth.gif";
-import togepiGif from "assets/gif/gen1/togepi.gif";
-import squirtleGif from "assets/gif/gen1/squirtle.gif";
+import charmanderGif from "assets/gif/gen1-pixel/charmander.gif";
+import bulbasaurGif from "assets/gif/gen1-pixel/bulbasaur.gif";
+// import eeveeGif from "assets/gif/gen1/eevee.gif";
+// import meowthGif from "assets/gif/gen1/meowth.gif";
+// import squirtleGif from "assets/gif/gen1/squirtle.gif";
 
 
 import fireTypeIcon from "assets/svg/types/fire.svg";
 import grassTypeIcon from "assets/svg/types/grass.svg";
-import waterTypeIcon from "assets/svg/types/water.svg";
-import normalTypeIcon from "assets/svg/types/normal.svg";
+// import waterTypeIcon from "assets/svg/types/water.svg";
+// import normalTypeIcon from "assets/svg/types/normal.svg";
 
 import greatballImg from "assets/img/pokeballs/greatball.png";
 import pokeballImg from "assets/img/pokeballs/pokeball.png";
@@ -27,7 +26,7 @@ const MOCK_TEAM = [
     nickname: "",
     typeIcon: fireTypeIcon,
     friendship: 4,
-    ball: greatballImg,
+    ball: pokeballImg,
     health: 60,
     stats: {
       power: 2,
@@ -49,10 +48,10 @@ const MOCK_TEAM = [
     },
   },
   {
-    src: togepiGif,
-    species: "Togepi",
+    src: bulbasaurGif,
+    species: "Bulbasaur",
     nickname: "",
-    typeIcon: normalTypeIcon,
+    typeIcon: grassTypeIcon,
     friendship: 1,
     ball: greatballImg,
     health: 100,
@@ -75,33 +74,6 @@ const MOCK_TEAM = [
       },
     },
   },
-  // {
-  //   src: bulbasaurGif,
-  //   species: "Bulbasaur",
-  //   nickname: "",
-  //   typeIcon: grassTypeIcon,
-  //   friendship: 2,
-  //   ball: pokeballImg,
-  //   health: 55,
-  //   stats: {
-  //     power: 0,
-  //     speed: 0,
-  //     wit: 0,
-  //     resilience: 7,
-  //     creativity: 8,
-  //   },
-  //   nature: "Relaxed",
-  //   preferences: {
-  //     flavors: {
-  //       likes: ["Spicy", "Sour"],
-  //       dislikes: ["Dry"],
-  //     },
-  //     conditions: {
-  //       likes: ["Cool", "Clever"],
-  //       dislikes: ["Tough", "Cute"],
-  //     },
-  //   },
-  // },
   // {
   //   src: eeveeGif,
   //   species: "Eevee",
@@ -185,20 +157,20 @@ const MOCK_TEAM = [
   // },
 ];
 
-const TeamGrid = ({team = MOCK_TEAM}) => {
+const Team = ({team = MOCK_TEAM}) => {
   const emptyCards = [...Array(6 - team.length)];
 
 
   return (
-    <Styled.TeamGrid>
+    <Styled.Team>
       {team.map((monster) => (
         <TeamCard monster={monster} />
       ))}
       {emptyCards.map(() => (
         <EmptyCard />
       ))}
-    </Styled.TeamGrid>
+    </Styled.Team>
   );
 };
 
-export default TeamGrid;
+export default Team;
