@@ -1,18 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Logo from 'components/Logo';
-import ProfileMenu from 'components/ProfileMenu';
+import ProfileMenu from "components/ProfileMenu";
 
-import * as Styled from './index.styles';
+import * as Styled from "./index.styles";
+import Badge from "components/Badge";
 
 const Topbar = () => {
   return (
     <Styled.Topbar>
-      <Styled.LogoSection>
-      <Logo />
-      </Styled.LogoSection>
-
-      <ProfileMenu />
+        <Badge label="Current Location" text="Pallet" />
+        <ProfileMenu />
     </Styled.Topbar>
   );
 };

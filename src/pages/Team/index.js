@@ -1,7 +1,7 @@
 import React from "react";
 
-import charmanderGif from "assets/gif/gen1-pixel/charmander.gif";
-import bulbasaurGif from "assets/gif/gen1-pixel/bulbasaur.gif";
+import charmanderGif from "assets/gif/gen1-png/charmander.png";
+import bulbasaurGif from "assets/gif/gen1-png/bulbasaur.png";
 // import eeveeGif from "assets/gif/gen1/eevee.gif";
 // import meowthGif from "assets/gif/gen1/meowth.gif";
 // import squirtleGif from "assets/gif/gen1/squirtle.gif";

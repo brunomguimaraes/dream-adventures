@@ -7,7 +7,7 @@ export const Main = styled.div`
   grid-template-columns: min-content auto;
   grid-template-rows: min-content auto;
   grid-template-areas:
-    "topbar topbar"
+    "topbar-left topbar-right"
     "sidebar content";
 `;
 
@@ -18,4 +18,12 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: min-content auto;
   grid-template-rows: min-content auto;
+`;
+
+export const LogoSection = styled.div`
+  grid-area: topbar-left;
+  width: 96px;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
 `;

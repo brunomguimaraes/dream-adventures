@@ -7,5 +7,4 @@ export const Sidebar = styled.div`
   flex-direction: column;
   grid-area: sidebar;
   align-items: center;
-  margin-top: 32px;
 `;

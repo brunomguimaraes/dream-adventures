@@ -1,5 +1,6 @@
 export const defaultColors = {
   white: 'white',
+  grey: '#847AA2',
   black: 'black',
   primary: '#6A67F3',
   secondary: '#FB7783',

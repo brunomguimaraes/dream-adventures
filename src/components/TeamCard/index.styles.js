@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { defaultColors, backgroundColors } from "styles/colors";
 
-const GIF_WIDTH = "64px";
+const GIF_WIDTH = "96px";
 
 export const Card = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ export const CardTitle = styled.span`
 `;
 
 export const Gif = styled.img`
-  max-width: ${GIF_WIDTH};
+  min-width: ${GIF_WIDTH};
   object-fit: contain;
 `;
 

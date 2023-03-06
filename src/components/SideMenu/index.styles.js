@@ -8,12 +8,14 @@ export const MenuItem = styled.button`
   color: inherit;
   border: none;
   padding: 0;
+  margin: 8px 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: 16px;
+  ${({ active }) => active && `background-color: ${defaultColors.primary};`}
 
   display: flex;
   flex-direction: column;
