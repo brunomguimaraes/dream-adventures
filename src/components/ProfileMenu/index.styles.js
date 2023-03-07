@@ -18,13 +18,13 @@ export const ProfileMenuInfo = styled.div`
 export const TextMenuInfo = styled.span`
   color: ${defaultColors.white};
   font-family: Signika;
-  font-size: 14px;
+  font-size: 16px;
   text-align: end;
 
   ${({ secondary }) =>
     secondary &&
     `
-    font-size: 12px;
+    font-size: 14px;
     color: ${defaultColors.grey};
   `}
 `;
@@ -37,6 +37,34 @@ export const ProfileAvatar = styled.div`
 
 export const Avatar = styled.img`
   margin-top: 4px;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+  border-radius: 50%;
+`;
+
+export const NotificationArea = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 32px;
+  cursor: pointer;
+`;
+
+export const MenuArea = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 8px;
+`;
+
+export const Icon = styled.img`
+  width: 24px;
+  height: 24px;
+
+  ${({ small }) =>
+    small &&
+    `
+    width: 12px;
+    height: 12px;
+  `}
 `;

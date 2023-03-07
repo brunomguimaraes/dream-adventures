@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { defaultColors, backgroundColors } from "styles/colors";
 
-const GIF_WIDTH = "96px";
+const GIF_WIDTH = "112px";
 
 export const Card = styled.div`
   display: flex;

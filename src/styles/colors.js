@@ -22,5 +22,6 @@ export const systemColors = {
 export const backgroundColors = {
   darkPrimary: '#282043',
   darkSecondary: '#1F1B36',
+  action: '#FB7783',
 };
 

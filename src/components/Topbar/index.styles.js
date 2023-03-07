@@ -5,7 +5,7 @@ export const Topbar = styled.div`
   background-color: transparent;
   height: 88px;
   display: grid;
-  grid-template-columns: 232px auto;
+  grid-template-columns: 232px repeat(2, auto);
   grid-template-rows: auto;
   padding-right: 16px;
 `;
