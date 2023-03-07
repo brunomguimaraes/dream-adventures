@@ -22,7 +22,7 @@ export const CardLeft = styled.div`
 `;
 
 export const CardCenter = styled.div`
-  margin 0 16px;
+  margin: 0 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
